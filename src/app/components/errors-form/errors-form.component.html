@@ -1,0 +1,10 @@
+<div
+    *ngIf="control &&
+    controlLabel &&
+    control.invalid &&
+    (control.dirty || control.touched)"
+    class="alert alert-danger mt-1">
+    <div>
+        Le champ {{controlLabel}} est requis.
+    </div>
+</div>

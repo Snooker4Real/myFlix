@@ -1,0 +1,25 @@
+<form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+    <div class="form-floating mb-3">
+        <input type="text"
+               class="form-control"
+               id="content"
+               placeholder="commentaire"
+               [(ngModel)]="comment.content"
+               formControlName="content">
+        <label for="content">Commentaire</label>
+        <app-errors-form
+            [control]="form.controls.content"
+            controlLabel="Commentaire"
+        ></app-errors-form>
+    </div>
+
+    <div class="row col-6 mx-auto">
+        <button class="btn btn-primary btn-lg"
+                [disabled]="form.invalid"
+                type="submit"
+        >
+            AJOUTER
+        </button>
+        <a routerLink="/series" routerLinkActive="active" class="btn btn-outline-dark my-2">RETOUR</a>
+    </div>
+</form>
