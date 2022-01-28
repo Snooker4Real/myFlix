@@ -1,1 +1,57 @@
-<p>single-series works!</p>
+<div class="px-4 py-3 text-center">
+    <h1 *ngIf="item" class="display-5 fw-bold">
+        {{item.name}}
+    </h1>
+</div>
+
+<div *ngIf="item" class="row col-6 card shadow mx-auto my-5 py-2">
+    <img [src]="item.imageUrl">
+
+    <div class="card-body">
+        <h2 class="card-title text-center">
+            {{item.name}}
+        </h2>
+
+        <p class="card-text">
+            Série diffusée le {{item.dateFirstSeason | date: 'dd/MM/yyyy'}}
+        </p>
+        <p class="card-text">
+            Nombre de saisons : {{item.seasonCount}}
+        </p>
+
+        <p class="card-text">{{item.description}}</p>
+        <p class="card-text">{{item.review}}</p>
+    </div>
+
+
+    <div class="row col-6  mx-auto my-5 py-2">
+        <ng-container *ngFor="let comment of item.comments">
+            <div class="card- shadow">
+                <div class="card-body">
+                    <p class="card-text">
+                        {{comment.date | date:"dd/MM/yyyy HH:mm"}}
+                    </p>
+                    <p class="card-text">
+                        {{comment.author}}
+                    </p>
+                    <p class="card-text">
+                        {{comment.content}}
+                    </p>
+                </div>
+            </div>
+        </ng-container>
+        <button class="btn btn-outline-primary"
+                [routerLink]="['/series',item.id,'comments','add']" routerLinkActive="active">AJOUTER UN COMMENTAIRE
+        </button>
+    </div>
+
+
+    <hr>
+
+    <div class="d-flex justify-content-end">
+
+        <a routerLink="/series" class="btn btn-outline-dark mx-1">RETOUR</a>
+    </div>
+
+
+</div>

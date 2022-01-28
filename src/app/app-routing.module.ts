@@ -14,7 +14,7 @@ const routes: Routes = [
     {path: "series", canActivate: [AuthGuard], component: SeriesComponent},
     {path: "series/add", canActivate: [AuthGuard], component: AddSeriesComponent},
     {path: "series/:id", canActivate: [AuthGuard], component: SingleSeriesComponent},
-    {path: "series/:id/comment/add", canActivate: [AuthGuard], component: AddCommentComponent},
+    {path: "series/:id/comments/add", canActivate: [AuthGuard], component: AddCommentComponent},
     {path: "series/:id/edit/", canActivate: [AuthGuard], component: EditSeriesComponent},
     {path: "not-found", component: ErrorComponent},
     {path: "**", redirectTo: "not-found"}

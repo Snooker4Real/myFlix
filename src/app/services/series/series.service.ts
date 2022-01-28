@@ -15,21 +15,21 @@ export class SeriesService {
     }
 
     private initSeries(): void {
-        const commentsGate: Array<Comment> = [];
-        commentsGate.push(new Comment('Admin', 'à regarder absolument'));
         const series: Array<Series> = [];
-        series.push(new Series('Серия 1', new Date('2007-08-05'), 5, 'Первый автор', "", "", commentsGate));
-        const commentsPokemon: Array<Comment> = [];
-        commentsPokemon.push(new Comment('Admin', 'Un must watch'));
-        series.push(new Series('Pokemon', new Date('1997-04-01'), 24, 'Découvrez l\'univers de Pokémon à travers Sacha Ketchum, un jeune garçon de 10 ans cherchant à devenir Maître Pokémon, et son ami Pikachu.', "un classique", "https://www.pokepedia.fr/images/thumb/f/f6/Saison_1.png/450px-Saison_1.png", commentsPokemon));
-        const commentsTheCrown: Array<Comment> = [];
-        commentsTheCrown.push(new Comment('Admin', 'Une histoire historiquement politique'));
-        series.push(new Series('The Crown', new Date('2016-11-04'), 4, 'Cette série dramatique retrace les rivalités politiques, intrigues et événements qui ont marqué le règne de la reine Élisabeth II et la seconde moitié du XXe siècle.', "Très bonne série", "https://eijwvqaycbm.exactdn.com/wp-content/uploads/2017/01/The-Crown-saison-1-poster-1200x1777.jpg", commentsTheCrown));
+        const commentPower: Array<Comment> = [];
+        commentPower.push(new Comment('Admin', 'Nice series!'));
+        series.push(new Series('Power', new Date('2014-06-08'), 6, 'Nightclub owner James "Ghost" St. Patrick has designs on an empire after the successful launch of his club “Truth.” However, the club and Ghost’s persona hides a terrible secret, the venue is a front for a lucrative drug network that serves only the wealthy and powerful. As Ghost tries to go legit, everything begins to unravel and he is unsure of who he can trust.', "", "https://m.media-amazon.com/images/M/MV5BYjllZjcwNjItMzc1OC00YjRkLWI5YzUtODM1YmEzNjFiYzNhXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg", commentPower));
+        const commentTheWitcher: Array<Comment> = [];
+        commentTheWitcher.push(new Comment('Admin', 'Un must watch'));
+        series.push(new Series('The Witcher', new Date('2019-12-20'), 2, ' Le sorceleur Geralt, un chasseur de monstres mutant, se bat pour trouver sa place dans un monde où les humains se révèlent souvent plus vicieux que les bêtes.', "un classique", "https://m.media-amazon.com/images/M/MV5BN2FiOWU4YzYtMzZiOS00MzcyLTlkOGEtOTgwZmEwMzAxMzA3XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg", commentTheWitcher));
+        const commentsAttackOnTitans: Array<Comment> = [];
+        commentsAttackOnTitans.push(new Comment('Admin', "Un animé plein d'action"));
+        series.push(new Series('Attack on Titans', new Date('2013-07-05'), 4, 'Dans un monde ravagé par des titans mangeurs d’homme depuis plus d’un siècle, les rares survivants de l’humanité n’ont d’autre choix pour survivre que de se barricader dans une cité-forteresse. Les humains n’ont pas aperçu de titans aux abords de leur ville depuis plus de cent ans. Eren, le héros de ce manga, et sa sœur adoptive Mikasa vont pourtant être témoins de la mort de leur mère lorsque qu’un titan encore plus grand que les précédents apparaît pour détruire le mur, le Titan colossal. Eren décide alors de prendre sa revanche et de tuer tous les titans en entrant dans l’escouade d’exploration, la section d’élite des soldats de l’humanité.', "Très bonne animé", "https://m.media-amazon.com/images/M/MV5BNDE5ZjMwNGEtYzMwMC00NzEwLTg3MWUtMmJmYTUyNDBjOGFiXkEyXkFqcGdeQXVyMTE3ODM0NzI1._V1_.jpg", commentsAttackOnTitans));
         this.series.next(series);
     }
 
     getSeriesItemById(id: number): Promise<Series> {
-        // Solution with the cache
+        // Caching solution
         return new Promise<Series>(
             (res, rej) => {
                 const series = this.series.getValue();
